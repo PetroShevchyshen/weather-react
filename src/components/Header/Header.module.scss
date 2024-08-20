@@ -1,0 +1,35 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 6.6rem;
+
+  .title {
+    font-size: 1.4rem;
+    font-weight: 400;
+  }
+
+  .searchBlock {
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--border-color);
+    border-radius: 2rem;
+    width: 22rem;
+    height: 3rem;
+    background: var(--base-color);
+
+    .searchImg {
+      margin: 0 0.8rem;
+      height: 1.3rem;
+    }
+
+    .searchInput {
+      border: none;
+      background: var(--base-color);
+
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+}
