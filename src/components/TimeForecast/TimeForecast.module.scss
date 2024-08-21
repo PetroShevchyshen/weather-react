@@ -1,0 +1,34 @@
+.wrapper {
+  width: 11rem;
+  height: 19rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: center;
+  border-right: 1px solid var(--border-color);
+
+  .title {
+    font-weight: 400;
+    font-size: 1.5rem;
+    align-items: center;
+    margin: 0;
+    justify-self: end;
+  }
+  .table {
+    display: flex;
+    width: 100%;
+    align-items: end;
+    justify-content: space-around;
+  }
+
+  .item {
+    display: flex;
+    flex-direction: column;
+    width: 2.5rem;
+
+    span {
+      margin-bottom: 1rem;
+      font-size: 1.125rem;
+    }
+  }
+}
