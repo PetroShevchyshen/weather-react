@@ -1,0 +1,43 @@
+.wrapper {
+  width: 11.3rem;
+  height: 10rem;
+  background: var(--base-color);
+  border: 1px solid var(--border-color);
+  border-radius: 1.8rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+
+  margin-bottom: 2rem;
+
+  .info {
+    align-self: start;
+    margin-left: 1rem;
+  }
+
+  .title {
+    font-weight: 600;
+    font-size: 1.25rem;
+    margin-bottom: 0.4rem;
+    align-items: start;
+  }
+
+  .weatherBlock {
+    display: flex;
+    width: 100%;
+    height: 100%;
+
+    .temperature {
+      display: flex;
+      flex-direction: column;
+      font-size: 1.5rem;
+      font-weight: 500;
+      margin: 1rem;
+
+      & > :last-child {
+        opacity: 0.5;
+      }
+    }
+  }
+}
