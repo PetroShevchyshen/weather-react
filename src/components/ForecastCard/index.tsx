@@ -1,18 +1,22 @@
 import { FC } from "react";
 import styles from "./ForecastCard.module.scss";
 import { ForecastCardProps } from "../../utilities/Models/ForecastCardProps";
+import dayjs from "dayjs";
 
 const ForecastCard: FC<ForecastCardProps> = ({
-  title,
+  date,
   alt,
   img,
   max_temp,
   min_temp,
 }) => {
+  const day = dayjs(date).format("ddd");
+  const dayOfWeekend = dayjs(date).format("DD MMMM");
   return (
     <div className={styles.wrapper}>
       <div className={styles.info}>
-        <h3 className={styles.title}>{title}</h3>
+        <h3 className={styles.title}>{day}</h3>
+        <span>{dayOfWeekend}</span>
       </div>
       <div className={styles.weatherBlock}>
         <img src={img} alt={alt} />

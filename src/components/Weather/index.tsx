@@ -1,13 +1,10 @@
-import { FC, useEffect } from "react";
+import { FC } from "react";
 import styles from "./Weather.module.scss";
 import DailyForecast from "../DailyForecast";
-import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
-import { fetchCurrentForecast } from "../../store/reducers/Forecast/ActionCreators";
+import { useAppSelector } from "../../hooks/hooks";
 
 const Weather: FC = () => {
-  const { error, isLoaded, forecast } = useAppSelector(
-    (state) => state.forecast
-  );
+  const { forecast } = useAppSelector((state) => state.forecast);
   return (
     <section className={styles.weather}>
       <div className={styles.content}>

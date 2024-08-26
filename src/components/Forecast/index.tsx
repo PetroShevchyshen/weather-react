@@ -14,7 +14,7 @@ const Forecast: FC = () => {
           img={item.day.condition.icon}
           max_temp={item.day.maxtemp_c}
           min_temp={item.day.mintemp_c}
-          title={item.date}
+          date={item.date}
         />
       ))}
     </div>

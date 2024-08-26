@@ -1,16 +1,14 @@
-import { FC, useCallback, useEffect } from "react";
+import { FC, useCallback } from "react";
 import styles from "./DailyForecast.module.scss";
 import TimeForecast from "../TimeForecast";
 import { rowTitles } from "../../utilities/const/TableRowTitles";
-import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
-import { fetchCurrentForecast } from "../../store/reducers/Forecast/ActionCreators";
+import { useAppSelector } from "../../hooks/hooks";
+
 import { IHour } from "../../utilities/Interfaces/IHour";
 import { timeArray } from "../../utilities/const/TimeArray";
 
 const DailyForecast: FC = () => {
-  const { error, isLoaded, forecast } = useAppSelector(
-    (state) => state.forecast
-  );
+  const { isLoaded, forecast } = useAppSelector((state) => state.forecast);
 
   const filteredObjects = useCallback((): IHour[] | undefined => {
     if (!isLoaded) {

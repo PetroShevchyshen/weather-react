@@ -1,5 +1,5 @@
 export type ForecastCardProps = {
-  title: string;
+  date: string;
   alt: string;
   img: string;
   max_temp: number;
