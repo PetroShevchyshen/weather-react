@@ -1,17 +1,24 @@
 import { FC } from "react";
 import styles from "./ForecastCard.module.scss";
-const ForecastCard: FC = () => {
+import { ForecastCardProps } from "../../utilities/Models/ForecastCardProps";
+
+const ForecastCard: FC<ForecastCardProps> = ({
+  title,
+  alt,
+  img,
+  max_temp,
+  min_temp,
+}) => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.info}>
-        <h3 className={styles.title}>Title</h3>
-        <span>Sub title</span>
+        <h3 className={styles.title}>{title}</h3>
       </div>
       <div className={styles.weatherBlock}>
-        <img src="//cdn.weatherapi.com/weather/64x64/day/113.png" alt="icon" />
+        <img src={img} alt={alt} />
         <div className={styles.temperature}>
-          <span>+16°</span>
-          <span>+11°</span>
+          <span>{max_temp}°</span>
+          <span>{min_temp}°</span>
         </div>
       </div>
     </div>

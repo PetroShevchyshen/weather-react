@@ -1,20 +1,25 @@
-import { FC } from "react";
+import { FC, useEffect } from "react";
 import styles from "./Weather.module.scss";
 import DailyForecast from "../DailyForecast";
+import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
+import { fetchCurrentForecast } from "../../store/reducers/Forecast/ActionCreators";
 
 const Weather: FC = () => {
+  const { error, isLoaded, forecast } = useAppSelector(
+    (state) => state.forecast
+  );
   return (
     <section className={styles.weather}>
       <div className={styles.content}>
-        <h3 className={styles.title}>14 October, 2024 11:30</h3>
+        <h3 className={styles.title}>{forecast.current.last_updated}</h3>
         <div className={styles.weatherInfo}>
           <div className={styles.weatherPreview}>
             <img
               className={styles.weatherPreviewImg}
-              src="//cdn.weatherapi.com/weather/64x64/day/113.png"
-              alt="weather"
+              src={forecast.current.condition.icon}
+              alt={forecast.current.condition.text}
             />
-            <p className={styles.temperature}>+16°C</p>
+            <p className={styles.temperature}>{forecast.current.temp_c}°C</p>
           </div>
           <div className={styles.s}>
             <DailyForecast />
