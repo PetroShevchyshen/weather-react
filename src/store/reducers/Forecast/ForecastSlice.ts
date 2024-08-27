@@ -28,13 +28,18 @@ const initialState: ForecastStore = {
     },
   },
   isLoaded: false,
+  theme: "light",
   error: "",
 };
 
 export const forecastSlice = createSlice({
   name: "forecast",
   initialState: initialState,
-  reducers: {},
+  reducers: {
+    changeTheme(state) {
+      state.theme = state.theme === "light" ? "dark" : "light";
+    },
+  },
   extraReducers(builder) {
     builder
       .addCase(fetchCurrentForecast.pending, (state) => {
@@ -56,3 +61,4 @@ export const forecastSlice = createSlice({
 });
 
 export default forecastSlice.reducer;
+export const { changeTheme } = forecastSlice.actions;

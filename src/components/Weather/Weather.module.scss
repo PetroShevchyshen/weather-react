@@ -1,11 +1,11 @@
 .weather {
   height: 26rem;
   width: 100%;
-  background: var(--base-color);
+  background: var(--base-background-color);
   border-radius: 1.9rem;
   border: 1px solid var(--border-color);
   margin-bottom: 2rem;
-
+  color: var(--text-color);
   .content {
     padding: 1.4rem;
     height: 100%;
