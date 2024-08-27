@@ -1,35 +1,24 @@
 import { FC } from "react";
 import styles from "./TimeForecast.module.scss";
+import { TimeForecastProps } from "../../utilities/Models/TimeForecastProps";
+import dayjs from "dayjs";
 
-const TimeForecast: FC = () => {
+const TimeForecast: FC<TimeForecastProps> = ({ data, title }) => {
   return (
     <div className={styles.wrapper}>
-      <h3 className={styles.title}>Title</h3>
+      <h3 className={styles.title}>{title}</h3>
       <div className={styles.table}>
-        <div className={styles.item}>
-          <span>time</span>
-          <img
-            src="//cdn.weatherapi.com/weather/64x64/day/113.png"
-            alt="icon"
-          />
-          <span>+7</span>
-          <span>+7</span>
-          <span>760</span>
-          <span>55</span>
-          <span>5</span>
-        </div>
-        <div className={styles.item}>
-          <span>time</span>
-          <img
-            src="//cdn.weatherapi.com/weather/64x64/day/113.png"
-            alt="icon"
-          />
-          <span>+7</span>
-          <span>+7</span>
-          <span>760</span>
-          <span>55</span>
-          <span>5</span>
-        </div>
+        {data.map((item) => (
+          <div className={styles.item}>
+            <span>{dayjs(item.time).format("HH:mm")}</span>
+            <img src={item.condition.icon} alt={item.condition.text} />
+            <span>{item.temp_c}</span>
+            <span>{item.feelslike_c}</span>
+            <span>{item.pressure_mb}</span>
+            <span>{item.humidity}</span>
+            <span>{item.wind_kph}</span>
+          </div>
+        ))}
       </div>
     </div>
   );

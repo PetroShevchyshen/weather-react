@@ -6,11 +6,12 @@ import { useAppSelector } from "../../hooks/hooks";
 
 import { IHour } from "../../utilities/Interfaces/IHour";
 import { timeArray } from "../../utilities/const/TimeArray";
+import { DayTimeTitles } from "../../utilities/const/DayTimeTitles";
 
 const DailyForecast: FC = () => {
   const { isLoaded, forecast } = useAppSelector((state) => state.forecast);
 
-  const filteredObjects = useCallback((): IHour[] | undefined => {
+  const filteredData = useCallback(() => {
     if (!isLoaded) {
       return;
     }
@@ -23,7 +24,21 @@ const DailyForecast: FC = () => {
     });
   }, [isLoaded, forecast]);
 
-  console.log(filteredObjects());
+  const separateData = useCallback(() => {
+    if (isLoaded) {
+      const data = filteredData();
+      const splitArray: IHour[][] = [];
+      data?.forEach((item, index) => {
+        if (index % 2 === 0) {
+          splitArray.push([item]);
+        } else {
+          splitArray[splitArray.length - 1].push(item);
+        }
+      });
+      return splitArray;
+    }
+  }, [isLoaded]);
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.rowTitles}>
@@ -31,11 +46,9 @@ const DailyForecast: FC = () => {
           <span>{item}</span>
         ))}
       </div>
-
-      <TimeForecast />
-      <TimeForecast />
-      <TimeForecast />
-      <TimeForecast />
+      {separateData()?.map((item, index) => (
+        <TimeForecast data={item} title={DayTimeTitles[index]} />
+      ))}
     </div>
   );
 };

@@ -1,4 +1,3 @@
-import { Fragment } from "react/jsx-runtime";
 import "./App.scss";
 import Home from "./pages/Home";
 import { Provider } from "react-redux";
