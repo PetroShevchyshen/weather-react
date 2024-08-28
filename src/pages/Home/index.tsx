@@ -15,7 +15,7 @@ const Home: FC = () => {
 
   useEffect(() => {
     dispatch(fetchCurrentForecast({ days: 3 }));
-  }, [dispatch]);
+  }, []);
 
   const toggleTheme = () => {
     dispatch(changeTheme());

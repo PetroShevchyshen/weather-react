@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useMemo } from "react";
 import styles from "./ForecastCard.module.scss";
 import { ForecastCardProps } from "../../utilities/Models/ForecastCardProps";
 import dayjs from "dayjs";
@@ -10,13 +10,13 @@ const ForecastCard: FC<ForecastCardProps> = ({
   max_temp,
   min_temp,
 }) => {
-  const day = dayjs(date).format("ddd");
-  const dayOfWeekend = dayjs(date).format("DD MMMM");
+  const day = useMemo(() => dayjs(date).format("ddd"), []);
+  const dayOfWeek = useMemo(() => dayjs(date).format("DD MMMM"), []);
   return (
     <div className={styles.wrapper}>
       <div className={styles.info}>
         <h3 className={styles.title}>{day}</h3>
-        <span>{dayOfWeekend}</span>
+        <span>{dayOfWeek}</span>
       </div>
       <div className={styles.weatherBlock}>
         <img src={img} alt={alt} />

@@ -1,16 +1,21 @@
-import { FC } from "react";
+import { FC, useMemo } from "react";
 import styles from "./TimeForecast.module.scss";
 import { TimeForecastProps } from "../../utilities/Models/TimeForecastProps";
 import dayjs from "dayjs";
 
 const TimeForecast: FC<TimeForecastProps> = ({ data, title }) => {
+  const time = useMemo(
+    () => data.map((item) => dayjs(item.time).format("HH:mm")),
+    []
+  );
+
   return (
     <div className={styles.wrapper}>
       <h3 className={styles.title}>{title}</h3>
       <div className={styles.table}>
-        {data.map((item) => (
+        {data.map((item, index) => (
           <div className={styles.item}>
-            <span>{dayjs(item.time).format("HH:mm")}</span>
+            <span>{time[index]}</span>
             <img src={item.condition.icon} alt={item.condition.text} />
             <span>{item.temp_c}</span>
             <span>{item.feelslike_c}</span>
