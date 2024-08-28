@@ -12,10 +12,11 @@ import { changeTheme } from "../../store/reducers/Forecast/ForecastSlice";
 const Home: FC = () => {
   const dispatch = useAppDispatch();
   const store = useAppSelector((state) => state.forecast);
+  const searchValue = useAppSelector((state) => state.forecast.searchValue);
 
   useEffect(() => {
-    dispatch(fetchCurrentForecast({ days: 3 }));
-  }, []);
+    dispatch(fetchCurrentForecast({ days: 3, location: searchValue }));
+  }, [searchValue]);
 
   const toggleTheme = () => {
     dispatch(changeTheme());

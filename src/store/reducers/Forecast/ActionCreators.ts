@@ -7,10 +7,7 @@ const key = import.meta.env.VITE_API_KEY;
 
 export const fetchCurrentForecast = createAsyncThunk(
   "forecast/fetchCurrentForecast",
-  async (
-    { days = 1, location = "Vinnitsa" }: { days?: number; location?: string },
-    thunkApi
-  ) => {
+  async ({ days, location }: { days: number; location: string }, thunkApi) => {
     try {
       const response = await axios.get<IForecastResponse>(
         `${FORECAST_WEATHER_URL}?key=${key}&q=${location}&days=${days}`

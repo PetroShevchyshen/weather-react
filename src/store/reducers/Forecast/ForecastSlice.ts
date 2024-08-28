@@ -29,6 +29,7 @@ const initialState: ForecastStore = {
   },
   isLoaded: false,
   theme: "light",
+  searchValue: "Vinnitsa",
   error: "",
 };
 
@@ -38,6 +39,10 @@ export const forecastSlice = createSlice({
   reducers: {
     changeTheme(state) {
       state.theme = state.theme === "light" ? "dark" : "light";
+    },
+    searchCountry(state, action: PayloadAction<string>) {
+      state.searchValue =
+        action.payload === "" ? state.searchValue : action.payload;
     },
   },
   extraReducers(builder) {
@@ -61,4 +66,4 @@ export const forecastSlice = createSlice({
 });
 
 export default forecastSlice.reducer;
-export const { changeTheme } = forecastSlice.actions;
+export const { changeTheme, searchCountry } = forecastSlice.actions;
