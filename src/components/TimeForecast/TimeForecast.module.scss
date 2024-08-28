@@ -7,18 +7,39 @@
   align-items: center;
   border-right: 1px solid var(--border-color);
 
+  @media screen and (max-width: 1145px) {
+    width: 8rem;
+  }
+
+  @media screen and (max-width: 810px) {
+    height: 11rem;
+  }
+
   .title {
     font-weight: 400;
     font-size: 1.5rem;
     align-items: center;
     margin: 0;
     justify-self: end;
+
+    @media screen and (max-width: 1145px) {
+      font-size: 1rem;
+    }
+
+    @media screen and (max-width: 810px) {
+      font-size: 0.6rem;
+    }
   }
+
   .table {
     display: flex;
     width: 100%;
     align-items: end;
     justify-content: space-around;
+
+    @media screen and (max-width: 1145px) {
+      width: 75%;
+    }
   }
 
   .item {
@@ -29,6 +50,14 @@
     span {
       margin-bottom: 1rem;
       font-size: 1.125rem;
+
+      @media screen and (max-width: 1145px) {
+        font-size: 1rem;
+      }
+      @media screen and (max-width: 810px) {
+        font-size: 0.5rem;
+        margin-bottom: 0.6rem;
+      }
     }
   }
 }

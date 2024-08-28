@@ -18,7 +18,7 @@ const Weather: FC = () => {
             />
             <p className={styles.temperature}>{forecast.current.temp_c}°C</p>
           </div>
-          <div className={styles.s}>
+          <div className={styles.dailyForecast}>
             <DailyForecast />
           </div>
         </div>

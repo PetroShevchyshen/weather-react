@@ -11,6 +11,7 @@
     .buttonWrapper {
       display: flex;
       justify-content: center;
+
       .toggleBtn {
         height: 3rem;
         width: 10rem;
@@ -20,6 +21,17 @@
         color: var(--text-color);
         border-radius: 2rem;
       }
+    }
+    @media screen and (max-width: 1250px) {
+      width: 1120px;
+    }
+
+    @media screen and (max-width: 1145px) {
+      width: 800px;
+    }
+
+    @media screen and (max-width: 810px) {
+      width: 400px;
     }
   }
 }

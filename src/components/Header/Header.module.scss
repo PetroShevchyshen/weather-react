@@ -5,10 +5,17 @@
   height: 6.6rem;
   color: var(--text-color);
 
+  @media screen and (max-width: 810px) {
+    height: 4rem;
+  }
   .title {
     font-size: 1.5rem;
     font-weight: 400;
     margin: 0;
+
+    @media screen and (max-width: 810px) {
+      font-size: 1rem;
+    }
   }
 
   .searchBlock {
@@ -34,6 +41,12 @@
       &:focus {
         outline: none;
       }
+      color: var(--text-color);
+    }
+
+    @media screen and (max-width: 810px) {
+      width: 12rem;
+      height: 2rem;
     }
   }
 }

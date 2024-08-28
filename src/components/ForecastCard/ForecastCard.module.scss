@@ -8,12 +8,27 @@
   flex-direction: column;
   align-items: center;
   justify-content: start;
-
   margin-bottom: 2rem;
+
+  @media screen and (max-width: 810px) {
+    width: 6rem;
+    height: 7rem;
+
+    img {
+      height: 2.5rem;
+      width: 2.5rem;
+    }
+  }
 
   .info {
     align-self: start;
     margin-left: 1rem;
+
+    @media screen and (max-width: 810px) {
+      span {
+        font-size: 0.8rem;
+      }
+    }
   }
 
   .title {
@@ -21,6 +36,10 @@
     font-size: 1.25rem;
     margin-bottom: 0.4rem;
     align-items: start;
+
+    @media screen and (max-width: 810px) {
+      font-size: 0.8rem;
+    }
   }
 
   .weatherBlock {
@@ -28,12 +47,20 @@
     width: 100%;
     height: 100%;
 
+    @media screen and (max-width: 810px) {
+      width: 80%;
+    }
+
     .temperature {
       display: flex;
       flex-direction: column;
       font-size: 1.5rem;
       font-weight: 500;
       margin: 1rem 1rem 1rem 0;
+
+      @media screen and (max-width: 810px) {
+        font-size: 0.8rem;
+      }
 
       & > :last-child {
         opacity: 0.5;
