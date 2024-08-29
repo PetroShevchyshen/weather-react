@@ -9,10 +9,10 @@ export const fetchCurrentForecast = createAsyncThunk(
   "forecast/fetchCurrentForecast",
   async ({ days, location }: { days: number; location: string }, thunkApi) => {
     try {
-      const response = await axios.get<IForecastResponse>(
+      const { data } = await axios.get<IForecastResponse>(
         `${FORECAST_WEATHER_URL}?key=${key}&q=${location}&days=${days}`
       );
-      return response.data;
+      return data;
     } catch (error) {
       return thunkApi.rejectWithValue(error);
     }

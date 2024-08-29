@@ -1,4 +1,5 @@
 @import "normalize-scss/sass/normalize/import-now";
+@import "../../mixin.scss";
 .wrapper {
   height: 100%;
   width: 100%;
@@ -22,15 +23,15 @@
         border-radius: 2rem;
       }
     }
-    @media screen and (max-width: 1250px) {
+    @include respond-to(small-desktop) {
       width: 1120px;
     }
 
-    @media screen and (max-width: 1145px) {
+    @include respond-to(tablet) {
       width: 800px;
     }
 
-    @media screen and (max-width: 810px) {
+    @include respond-to(mobile) {
       width: 400px;
     }
   }

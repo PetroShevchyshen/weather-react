@@ -29,7 +29,7 @@ const Home: FC = () => {
         <Weather />
         <Forecast />
         <div className={styles.buttonWrapper}>
-          <button className={styles.toggleBtn} onClick={() => toggleTheme()}>
+          <button className={styles.toggleBtn} onClick={toggleTheme}>
             Change Theme
           </button>
         </div>

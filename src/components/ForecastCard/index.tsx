@@ -10,8 +10,8 @@ const ForecastCard: FC<ForecastCardProps> = ({
   max_temp,
   min_temp,
 }) => {
-  const day = useMemo(() => dayjs(date).format("ddd"), []);
-  const dayOfWeek = useMemo(() => dayjs(date).format("DD MMMM"), []);
+  const day = useMemo(() => dayjs(date).format("ddd"), [date]);
+  const dayOfWeek = useMemo(() => dayjs(date).format("DD MMMM"), [date]);
   return (
     <div className={styles.wrapper}>
       <div className={styles.info}>

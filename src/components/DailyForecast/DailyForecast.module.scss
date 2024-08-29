@@ -1,3 +1,5 @@
+@import "../../mixin.scss";
+
 .wrapper {
   height: 100%;
   display: flex;
@@ -12,19 +14,19 @@
       color: var(--second-text-color);
       font-size: 1.125rem;
 
-      @media screen and (max-width: 1250px) {
+      @include respond-to(small-desktop) {
         font-size: 1rem;
         margin-bottom: 0.9rem;
       }
 
-      @media screen and (max-width: 810px) {
+      @include respond-to(mobile) {
         font-size: 0.35rem;
         margin-bottom: 0.5rem;
       }
     }
   }
 
-  @media screen and (max-width: 810px) {
+  @include respond-to(mobile) {
     img {
       height: 2rem;
       width: 2rem;

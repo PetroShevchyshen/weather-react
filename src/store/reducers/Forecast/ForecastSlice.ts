@@ -2,6 +2,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { fetchCurrentForecast } from "./ActionCreators";
 import { IForecastResponse } from "../../../utilities/Interfaces/IForecastResponse";
 import { ForecastStore } from "../../../utilities/Models/ForecastStore";
+import { theme } from "../../../utilities/enums/enums";
 
 const initialState: ForecastStore = {
   forecast: {
@@ -38,7 +39,7 @@ export const forecastSlice = createSlice({
   initialState: initialState,
   reducers: {
     changeTheme(state) {
-      state.theme = state.theme === "light" ? "dark" : "light";
+      state.theme = state.theme === theme.light ? theme.dark : theme.light;
     },
     searchCountry(state, action: PayloadAction<string>) {
       state.searchValue =

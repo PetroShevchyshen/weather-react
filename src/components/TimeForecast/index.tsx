@@ -6,7 +6,7 @@ import dayjs from "dayjs";
 const TimeForecast: FC<TimeForecastProps> = ({ data, title }) => {
   const time = useMemo(
     () => data.map((item) => dayjs(item.time).format("HH:mm")),
-    []
+    [data]
   );
 
   return (

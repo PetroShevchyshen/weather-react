@@ -1,3 +1,5 @@
+@import "../../mixin.scss";
+
 .header {
   display: flex;
   justify-content: space-between;
@@ -5,7 +7,7 @@
   height: 6.6rem;
   color: var(--text-color);
 
-  @media screen and (max-width: 810px) {
+  @include respond-to(mobile) {
     height: 4rem;
   }
   .title {
@@ -13,7 +15,7 @@
     font-weight: 400;
     margin: 0;
 
-    @media screen and (max-width: 810px) {
+    @include respond-to(mobile) {
       font-size: 1rem;
     }
   }
@@ -38,13 +40,13 @@
       background: var(--base-background-color);
       width: 100%;
       margin-right: 0.5rem;
+      color: var(--text-color);
       &:focus {
         outline: none;
       }
-      color: var(--text-color);
     }
 
-    @media screen and (max-width: 810px) {
+    @include respond-to(mobile) {
       width: 12rem;
       height: 2rem;
     }

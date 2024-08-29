@@ -1,3 +1,5 @@
+@import "../../mixin.scss";
+
 .wrapper {
   width: 11rem;
   height: 19rem;
@@ -7,11 +9,11 @@
   align-items: center;
   border-right: 1px solid var(--border-color);
 
-  @media screen and (max-width: 1145px) {
+  @include respond-to(tablet) {
     width: 8rem;
   }
 
-  @media screen and (max-width: 810px) {
+  @include respond-to(mobile) {
     height: 11rem;
   }
 
@@ -22,11 +24,11 @@
     margin: 1rem;
     justify-self: end;
 
-    @media screen and (max-width: 1145px) {
+    @include respond-to(tablet) {
       font-size: 1rem;
     }
 
-    @media screen and (max-width: 810px) {
+    @include respond-to(mobile) {
       font-size: 0.6rem;
     }
   }
@@ -37,7 +39,7 @@
     align-items: end;
     justify-content: space-around;
 
-    @media screen and (max-width: 1145px) {
+    @include respond-to(tablet) {
       width: 75%;
     }
   }
@@ -51,10 +53,10 @@
       margin-bottom: 1rem;
       font-size: 1.125rem;
 
-      @media screen and (max-width: 1145px) {
+      @include respond-to(tablet) {
         font-size: 1rem;
       }
-      @media screen and (max-width: 810px) {
+      @include respond-to(mobile) {
         font-size: 0.5rem;
         margin-bottom: 0.6rem;
       }
