@@ -1,0 +1,36 @@
+@import "../../mixin.scss";
+
+.wrapper {
+  height: 100%;
+  display: flex;
+  align-items: end;
+
+  .rowTitles {
+    display: flex;
+    flex-direction: column;
+
+    span {
+      margin-bottom: 1rem;
+      color: var(--second-text-color);
+      font-size: 1.125rem;
+
+      @include respond-to(small-desktop) {
+        font-size: 1rem;
+        margin-bottom: 0.9rem;
+      }
+
+      @include respond-to(mobile) {
+        font-size: 0.35rem;
+        margin-bottom: 0.5rem;
+      }
+    }
+  }
+
+  @include respond-to(mobile) {
+    img {
+      height: 2rem;
+      width: 2rem;
+      margin-bottom: 1rem;
+    }
+  }
+}

@@ -1,0 +1,96 @@
+@import "../../mixin.scss";
+
+.weather {
+  height: 26rem;
+  width: 100%;
+  background: var(--base-background-color);
+  border-radius: 1.9rem;
+  border: 1px solid var(--border-color);
+  margin-bottom: 2rem;
+  color: var(--text-color);
+
+  @include respond-to(mobile) {
+    height: 21rem;
+  }
+
+  .content {
+    padding: 1.4rem;
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+
+    @include respond-to(small-desktop) {
+      padding: 1.4rem 1rem;
+    }
+
+    .title {
+      font-weight: 400;
+      font-size: 1.5rem;
+      margin: 0;
+
+      @include respond-to(mobile) {
+        font-size: 1rem;
+        text-align: center;
+      }
+    }
+
+    .weatherInfo {
+      display: flex;
+      justify-content: space-between;
+
+      @include respond-to(mobile) {
+        display: block;
+      }
+
+      .dailyForecast {
+        margin-top: 1.5rem;
+      }
+
+      .weatherPreview {
+        margin-left: 1rem;
+
+        @include respond-to(mobile) {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: space-around;
+          height: 4rem;
+        }
+
+        @include respond-to(small-desktop) {
+          margin-left: 0;
+        }
+
+        .weatherPreviewImg {
+          width: 17.5rem;
+          height: 11.7rem;
+          object-fit: contain;
+          margin: 1.5rem 0;
+
+          @include respond-to(tablet) {
+            width: 8rem;
+          }
+
+          @include respond-to(mobile) {
+            width: 4rem;
+            height: 4rem;
+            margin: 0;
+          }
+        }
+
+        .temperature {
+          margin: 0;
+          font-size: 4.8rem;
+
+          @include respond-to(tablet) {
+            font-size: 2rem;
+          }
+
+          @include respond-to(mobile) {
+            font-size: 1rem;
+          }
+        }
+      }
+    }
+  }
+}

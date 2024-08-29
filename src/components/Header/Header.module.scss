@@ -1,0 +1,54 @@
+@import "../../mixin.scss";
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 6.6rem;
+  color: var(--text-color);
+
+  @include respond-to(mobile) {
+    height: 4rem;
+  }
+  .title {
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin: 0;
+
+    @include respond-to(mobile) {
+      font-size: 1rem;
+    }
+  }
+
+  .searchBlock {
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--border-color);
+    border-radius: 2rem;
+    width: 22rem;
+    height: 3rem;
+    background: var(--base-background-color);
+
+    .searchImg {
+      margin: 0 0.8rem;
+      height: 1.3rem;
+      cursor: pointer;
+    }
+
+    .searchInput {
+      border: none;
+      background: var(--base-background-color);
+      width: 100%;
+      margin-right: 0.5rem;
+      color: var(--text-color);
+      &:focus {
+        outline: none;
+      }
+    }
+
+    @include respond-to(mobile) {
+      width: 12rem;
+      height: 2rem;
+    }
+  }
+}

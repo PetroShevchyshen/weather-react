@@ -1,0 +1,65 @@
+@import "../../mixin.scss";
+
+.wrapper {
+  width: 11rem;
+  height: 19rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: center;
+  border-right: 1px solid var(--border-color);
+
+  @include respond-to(tablet) {
+    width: 8rem;
+  }
+
+  @include respond-to(mobile) {
+    height: 11rem;
+  }
+
+  .title {
+    font-weight: 400;
+    font-size: 1.5rem;
+    align-items: center;
+    margin: 1rem;
+    justify-self: end;
+
+    @include respond-to(tablet) {
+      font-size: 1rem;
+    }
+
+    @include respond-to(mobile) {
+      font-size: 0.6rem;
+    }
+  }
+
+  .table {
+    display: flex;
+    width: 100%;
+    align-items: end;
+    justify-content: space-around;
+
+    @include respond-to(tablet) {
+      width: 75%;
+    }
+  }
+
+  .item {
+    display: flex;
+    flex-direction: column;
+    width: 2.5rem;
+
+    span {
+      margin-bottom: 1rem;
+      font-size: 1.125rem;
+
+      @include respond-to(tablet) {
+        font-size: 1rem;
+      }
+      @include respond-to(mobile) {
+        font-size: 0.5rem;
+        margin-bottom: 0.6rem;
+      }
+    }
+  }
+}

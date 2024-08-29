@@ -1,0 +1,38 @@
+@import "normalize-scss/sass/normalize/import-now";
+@import "../../mixin.scss";
+.wrapper {
+  height: 100%;
+  width: 100%;
+  background-color: var(--background-color);
+
+  .home {
+    height: 100%;
+    width: 1240px;
+    margin: 0 auto;
+    .buttonWrapper {
+      display: flex;
+      justify-content: center;
+
+      .toggleBtn {
+        height: 3rem;
+        width: 10rem;
+        border: 1px solid var(--border-color);
+        cursor: pointer;
+        background-color: var(--base-background-color);
+        color: var(--text-color);
+        border-radius: 2rem;
+      }
+    }
+    @include respond-to(small-desktop) {
+      width: 1120px;
+    }
+
+    @include respond-to(tablet) {
+      width: 800px;
+    }
+
+    @include respond-to(mobile) {
+      width: 400px;
+    }
+  }
+}
