@@ -1,8 +1,9 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { fetchCurrentForecast } from "./ActionCreators";
+import { fetchCurrentForecast, searchCountryData } from "./ActionCreators";
 import { IForecastResponse } from "../../../utilities/Interfaces/IForecastResponse";
 import { ForecastStore } from "../../../utilities/Models/ForecastStore";
 import { theme } from "../../../utilities/enums/enums";
+import { SearchResponse } from "../../../utilities/Models/SearchRespons";
 
 const initialState: ForecastStore = {
   forecast: {
@@ -31,6 +32,7 @@ const initialState: ForecastStore = {
   isLoaded: false,
   theme: "light",
   searchValue: "Vinnitsa",
+  searchData: [],
   error: "",
 };
 
@@ -44,6 +46,9 @@ export const forecastSlice = createSlice({
     searchCountry(state, action: PayloadAction<string>) {
       state.searchValue =
         action.payload === "" ? state.searchValue : action.payload;
+    },
+    clearSearch(state) {
+      state.searchData = [];
     },
   },
   extraReducers(builder) {
@@ -62,9 +67,21 @@ export const forecastSlice = createSlice({
       .addCase(fetchCurrentForecast.rejected, (state, action) => {
         state.isLoaded = false;
         state.error = action.error.message || "Failed to fetch forecast";
+      })
+      .addCase(
+        searchCountryData.fulfilled,
+        (state, action: PayloadAction<SearchResponse>) => {
+          state.error = "";
+          state.searchData = action.payload;
+        }
+      )
+      .addCase(searchCountryData.rejected, (state) => {
+        state.error = "";
+        state.searchData = [];
       });
   },
 });
 
 export default forecastSlice.reducer;
-export const { changeTheme, searchCountry } = forecastSlice.actions;
+export const { changeTheme, searchCountry, clearSearch } =
+  forecastSlice.actions;

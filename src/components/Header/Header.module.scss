@@ -22,6 +22,7 @@
 
   .searchBlock {
     display: flex;
+    position: relative;
     align-items: center;
     border: 1px solid var(--border-color);
     border-radius: 2rem;
@@ -43,6 +44,24 @@
       color: var(--text-color);
       &:focus {
         outline: none;
+      }
+      @include respond-to(mobile) {
+        font-size: 0.8rem;
+      }
+    }
+
+    .searchValue {
+      position: absolute;
+      top: 3.2rem;
+      width: 100%;
+      height: max-content;
+      background-color: var(--base-background-color);
+      border: 1px solid var(--border-color);
+
+      @include respond-to(mobile) {
+        top: 2.5rem;
+        font-size: 0.6rem;
+        text-align: center;
       }
     }
 
